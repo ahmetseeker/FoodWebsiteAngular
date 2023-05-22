@@ -1,0 +1,44 @@
+<app-search></app-search>
+<app-tags></app-tags>
+<app-not-found [visible] = "!foods || foods.length <= 0" resetLinkText = "Reset Search"></app-not-found>
+<div class="mx-5 p-5">
+    <ul class="d-flex flex-wrap justify-content-center align-items-center ps-0">
+        <li *ngFor="let food of foods" class="d-flex flex-column food-container p-4 m-1">
+            <a routerLink="/food/{{ food.id }}">
+                <img src="{{food.imageUrl}}" alt="" class="img-fluid rounded-top food-img mb-2">
+                <div class="food-content p-1">
+                    <div class="food-content top d-flex justify-content-between align-items-center mb-2">
+                        <div class="name">
+                            {{ food.name }}
+                        </div>
+                        <span class="favorite {{food.favorite ? '' : 'not'}}">
+                            ❤
+                        </span>
+                        
+                    </div>
+                    <div class="star-rating">
+                        <span class="fa fa-star checked me-1"></span>
+                        <span class="fa fa-star checked me-1"></span>
+                        <span class="fa fa-star checked me-1"></span>
+                        <span class="fa fa-star checked me-1"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                    <div class="food-footer d-flex justify-content-between align-items-center">
+                        <div class="origins">
+                            <span *ngFor="let origin of food.origins">
+                                {{ origin }}
+                            </span>
+                        </div>
+                        <div class="cook-time">
+                            <span>🕒</span>
+                            {{ food.cookTime }}
+                        </div>
+                    </div>
+                    <div class="price">
+                        <span><b>{{ food.price | currency }}</b></span>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

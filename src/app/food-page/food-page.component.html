@@ -1,0 +1,36 @@
+<app-not-found [visible] = "!food" notFoundMessage = "Product Not Found!" resetLinkText = "Back To Homepage"></app-not-found>
+
+<div *ngIf="food" class="container">
+    <div class="row my-4 py-4">
+        <div class="col-md-5 details-img">
+            <img src="{{ food.imageUrl }}" class="rounded-4 img-fluid" alt="{{ food.name }}">
+        </div>
+        <div class="col-md-7">
+            <div class="p-3 food-details">
+                <div class="d-flex justify-content-between align-items-center food-header">
+                    <h2 class="h2">{{ food.name }}</h2>
+                    <h4 class="favorite {{ food.favorite ? '' : 'not'}}">❤</h4>
+                </div>
+                <div class="origins my-2">
+                    <span *ngFor="let origin of food.origins" class="badge bg-secondary me-1">{{ origin }}</span>
+                </div>
+                <div class="tags my-2">
+                    <span *ngFor="let tag of food.tags" class="badge bg-secondary me-1">{{ tag }}</span>
+                </div>
+                <div class="star-rating mt-3">
+                    <span class="fa fa-star checked me-1"></span>
+                    <span class="fa fa-star checked me-1"></span>
+                    <span class="fa fa-star checked me-1"></span>
+                    <span class="fa fa-star checked me-1"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+                <div class="my-3">Time to cook about <strong>{{ food.cookTime }}</strong> minutes</div>
+                <div class="mb-4"> <b>{{ food.price | currency }}</b> </div>
+                <button (click)="addToCart()" class="btn btn-danger w-100">Add To Cart</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

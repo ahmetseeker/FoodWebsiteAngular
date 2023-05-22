@@ -1,0 +1,23 @@
+.cart-list {
+    font-family: 'Quicksand', sans-serif;
+
+    .cart-food-name {
+        width: 10rem;
+        max-width: 10rem;
+    }
+
+    .cart-food-price {
+        width: 2rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: gray;
+    }
+
+    .cart-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 5px;
+    }
+}

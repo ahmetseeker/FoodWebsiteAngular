@@ -1,0 +1,7 @@
+<div  class="d-flex justify-content-center align-items-center">
+    <div *ngIf="tags" class="container mt-3 py-2 text-center">
+        <a *ngFor="let tag of tags" routerLink="/tag/{{ tag.name }}" class="btn btn-sm rounded btn-secondary m-1">
+            {{ tag.name }}({{ tag.count }})
+        </a>
+    </div>
+</div>
